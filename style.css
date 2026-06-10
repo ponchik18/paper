@@ -1,0 +1,496 @@
+  @font-face {
+    font-family: "Double Strike";
+    src: local("Double Strike"),
+         local("DoubleStrike"),
+         url("./DoubleStrike.otf") format("opentype"),
+         url("./Double Strike.ttf") format("truetype"),
+         url("./Double%20Strike.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+    @font-face {
+    font-family: "Centro Sans Pro";
+    src: local("PF Centro Sans Pro"),
+         local("Centro Sans Pro"),
+         url("./centro/pfcentrosanspro.woff2") format("woff2"),
+         url("./centro/pfcentrosanspro.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "XCompany-Regular";
+    src: local("XCompany-Regular"),
+         local("XCompany-Regular"),
+         url("./XCompany-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #ddd;
+    padding: 30px;
+    color: #3f3e3e;
+    font-family: "Centro Sans Pro", "Inter", "Segoe UI", sans-serif;
+  }
+  
+  .newspaper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210mm, 210mm));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: #fff;
+    padding: 8mm;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  
+  .spread {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .half {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .small-header {
+    text-align: center;
+    margin-bottom: 6mm;
+  }
+  
+  .small-header .line,
+  .double-line {
+    height: 2px;
+    background: #111;
+    border-radius: 5px;
+  }
+  
+  .small-header h2 {
+    font-family: "XCompany-Regular", serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 2mm 0;
+    font-weight: 400;
+  }
+  
+  /* PAGE 1 LEFT */
+  
+  .love-story {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 6mm;
+    flex: 1;
+    min-height: 0;
+    padding: 0 2mm;
+    align-items: stretch;
+  }
+
+  .love-story-text {
+    text-align: justify;
+    min-width: 0;
+  }
+
+  .love-story-photo {
+    background: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .love-story-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .letter-text p {
+    font-family: "Times New Roman", serif;
+    margin-bottom: 0px !important;
+    font-size: 15px !important;
+  }
+
+  .love-story h3,
+  .guest-map h3,
+  .guest-letter h3,
+  .truth-game h3,
+  .game-row-title,
+  .crossword h3,
+  .sidebar h3 {
+    font-family: "Times New Roman", serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 4mm;
+    text-align: center;
+  }
+  
+  .love-story-text h3 {
+    text-align: center;
+  }
+
+  .love-story p {
+    font-size: 14px;
+    line-height: 1.25;
+    margin-bottom: 4mm;
+  }
+  
+  .guest-map {
+    height: 58mm;
+    text-align: center;
+  }
+  
+  .guest-map h3 {
+    font-size: 16px;
+    max-width: 90%;
+    margin: 0 auto 4mm;
+  }
+  
+  .map-placeholder {
+    height: 42mm;
+    background: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+  }
+  
+  /* PAGE 1 RIGHT */
+  
+  .main-header {
+    text-align: center;
+  }
+  
+  .main-header h4 {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+  }
+  
+  .main-header h1 {
+    font-family: "XCompany-Regular", serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1;
+    margin: 3mm 0 2mm;
+  }
+
+  .title {
+    font-family: "Double Strike", ;
+    font-size: 72px;
+    text-transform: uppercase;
+  }
+
+  .small-header .title {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .main-header .title {
+    font-size: 72px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1mm;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+  .meta-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;           /* вместо border-top: 1px */
+      background-color: #111;
+      border-radius: 5px;    /* скругление краёв */
+  }
+
+  .meta-row-big {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2mm;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative; /* важно для позиционирования */
+  }
+
+  .meta-row-big::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #111;
+      border-radius: 5px; /* скругляем саму линию */
+  }
+  
+  .main-title {
+    text-align: center;
+    border-bottom: 1px solid #111;
+    padding: 3mm 0;
+  }
+  
+  .main-title h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  
+  .main-title p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  
+  .hero-photo {
+    flex: 1;
+    margin-top: 4mm;
+    background: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+  }
+  
+  .front-footer {
+    font-family: "Cormorant Garamond", serif;
+    text-align: center;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-top: 3mm;
+  }
+  
+  /* PAGE 2 LEFT */
+  
+  .guest-letter {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6mm;
+    height: 82mm;
+    margin-bottom: 7mm;
+  }
+  
+  .letter-text {
+    text-align: center;
+  }
+  
+  .letter-text p {
+    font-size: 14px;
+    line-height: 1.25;
+    margin-bottom: 3mm;
+  }
+  
+  .vertical-photo,
+  .photo-block {
+    background: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+  }
+  
+  .bottom-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 6mm;
+  }
+  
+  .truth-game {
+    border: 1px solid #aaa;
+    padding: 5mm;
+  }
+  
+  .truth-game h3 {
+    font-size: 15px;
+  }
+  
+  .game-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 60px;
+    gap: 1mm;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 4mm;
+  }
+
+  .game-row p {
+    text-align: center;
+  }
+
+  .game-row span {
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    text-align: center;
+    color: #111;
+  }
+
+  .game-row-title {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+  }
+  
+  /* PAGE 2 RIGHT */
+  
+  .right-page-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.45fr 0.55fr;
+    gap: 6mm;
+  }
+  
+  .crossword {
+    border: 1px solid #aaa;
+    padding: 5mm;
+  }
+  
+  .crossword h3 {
+    font-size: 22px;
+  }
+  
+  .crossword-field {
+    height: 100mm;
+    margin-bottom: 4mm;
+    background:
+      linear-gradient(#ccc 1px, transparent 1px),
+      linear-gradient(90deg, #ccc 1px, transparent 1px);
+    background-size: 8mm 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+  }
+  
+  .crossword ol {
+    padding-left: 6mm;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+  }
+  
+  .sidebar-block {
+    border-bottom: 1px solid #111;
+    padding-bottom: 5mm;
+    text-align: center;
+  }
+  
+  .sidebar-block h3 {
+    font-size: 18px;
+  }
+  
+  .sidebar-block p {
+    font-size: 16px;
+    margin-bottom: 3mm;
+  }
+  
+  .date-row {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 3mm;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 3mm;
+  }
+  
+  .date-row span {
+    font-size: 18px;
+  }
+  
+  .date-row p {
+    font-size: 16px;
+    line-height: 1.1;
+  }
+  
+  .qr-block {
+    background: #e5e5e5;
+    padding: 4mm;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .qr-placeholder {
+    width: 42mm;
+    height: 42mm;
+    margin: 3mm auto 0;
+    background: #fff;
+    border: 4px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  
+  /* PRINT */
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+    }
+  
+    .newspaper {
+      gap: 0;
+      display: block;
+    }
+  
+    .page {
+      width: 210mm;
+      height: 297mm;
+      padding: 8mm;
+    }
+  }
