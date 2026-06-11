@@ -10,6 +10,16 @@
     font-display: swap;
   }
 
+  @font-face {
+    font-family: "Literata";
+    src: local("Literata-Regular"),
+         url("./Literata-Regular.ttf") format("truetype"),
+         url("./Literata-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
     @font-face {
     font-family: "Centro Sans Pro";
     src: local("PF Centro Sans Pro"),
@@ -99,9 +109,6 @@
   /* PAGE 1 LEFT */
   
   .love-story {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 6mm;
     flex: 1;
     min-height: 0;
     padding: 0 2mm;
@@ -109,8 +116,13 @@
   }
 
   .love-story-text {
-    text-align: justify;
+   
+    font-family: "Literata", serif;
+    margin-bottom: 0px !important;
+    font-size: 16px !important;
+    text-align: center;
     min-width: 0;
+
   }
 
   .love-story-photo {
@@ -132,9 +144,9 @@
   }
 
   .letter-text p {
-    font-family: "Times New Roman", serif;
+    font-family: "Literata", serif;
     margin-bottom: 0px !important;
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 
   .love-story h3,
@@ -144,7 +156,7 @@
   .game-row-title,
   .crossword h3,
   .sidebar h3 {
-    font-family: "Times New Roman", serif;
+    font-family: "Literata", serif;
     font-size: 18px;
     text-transform: uppercase;
     margin-bottom: 4mm;
@@ -156,10 +168,11 @@
   }
 
   .love-story p {
-    font-size: 14px;
     line-height: 1.25;
-    margin-bottom: 4mm;
+    margin-bottom: 2mm;
   }
+
+
   
   .guest-map {
     height: 58mm;
@@ -316,9 +329,8 @@
   }
   
   .letter-text p {
-    font-size: 14px;
     line-height: 1.25;
-    margin-bottom: 3mm;
+    margin-bottom: 2mm !important;
   }
   
   .vertical-photo,
@@ -361,7 +373,7 @@
   }
 
   .game-row span {
-    font-family: "Times New Roman", serif;
+    font-family: "Literata", serif;
     font-size: 16px;
     text-align: center;
     color: #111;
@@ -428,6 +440,7 @@
   
   .sidebar-block p {
     font-size: 16px;
+    font-family: "Literata", serif;
     margin-bottom: 3mm;
   }
   
