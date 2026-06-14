@@ -404,16 +404,12 @@
   }
   
   .crossword-field {
-    height: 100mm;
+    height: 97mm;
     margin-bottom: 4mm;
-    background:
-      linear-gradient(#ccc 1px, transparent 1px),
-      linear-gradient(90deg, #ccc 1px, transparent 1px);
-    background-size: 8mm 8mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
+    background-image: url("image/crossword_final.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   
   .crossword ol {
