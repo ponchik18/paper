@@ -417,8 +417,9 @@
   }
   
   .crossword ol {
+    font-family: "Literata", serif;
+    font-size: 16px !important;
     padding-left: 6mm;
-    font-size: 12px;
     line-height: 1.25;
   }
   
@@ -453,8 +454,8 @@
     margin-bottom: 3mm;
   }
   
-  .date-row span {
-    font-size: 18px;
+  .date-row i {
+    font-size: 25px;
   }
   
   .date-row p {

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crossword</title>
+<style>
+  :root { --cell: 42px; --gap: 5px; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #efe9da;
+    font-family: "Comic Sans MS", "Segoe Print", "Bradley Hand", cursive;
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  .sheet {
+    position: relative;
+    background: #fbf8ef;
+    padding: 70px 90px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, var(--cell));
+    grid-template-rows: repeat(15, var(--cell));
+    gap: var(--gap);
+  }
+  .cell {
+    position: relative;
+    background: #fffdf6;
+    border: 2px solid #2f2b27;
+    border-radius: 4px;
+    box-shadow: 1.5px 1.5px 0 rgba(0,0,0,0.18);
+  }
+  .cell.spine { background: #fffdf6; }
+  /* subtle hand-drawn wobble */
+  .cell:nth-child(2n) { transform: rotate(-0.7deg); }
+  .cell:nth-child(3n) { transform: rotate(0.6deg); }
+  .cell:nth-child(5n) { transform: rotate(0.4deg); }
+  .cell:nth-child(7n) { transform: rotate(-0.5deg); }
+  .num {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #2f2b27;
+    line-height: 1;
+  }
+  /* decorative line-art illustrations, in the spirit of crossword #1 */
+  .deco { position: absolute; width: 92px; height: 92px; opacity: 0.9; }
+  .deco svg { width: 100%; height: 100%; }
+  .deco svg * {
+    fill: none;
+    stroke: #3d3a35;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .d-passport { top: 26px; left: 8px; }
+  .d-cake     { top: 26px; right: 8px; }
+  .d-camera   { bottom: 22px; left: 8px; }
+  .d-mirror   { bottom: 10px; right: 14px; width: 80px; height: 104px; }
+  @media (max-width: 760px) { .deco { display: none; } .sheet { padding: 40px; } }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="deco d-passport"><svg viewBox="0 0 100 100"><rect x="24" y="12" width="54" height="76" rx="6"/><circle cx="51" cy="44" r="13"/><path d="M35 76 q16 -16 32 0"/><line x1="34" y1="22" x2="52" y2="22"/></svg></div>
+    <div class="deco d-cake"><svg viewBox="0 0 100 100"><path d="M18 64 h64 v15 a8 7 0 0 1 -64 0 z"/><path d="M22 64 q28 -22 56 0"/><line x1="50" y1="30" x2="50" y2="44"/><circle cx="50" cy="25" r="4"/><line x1="14" y1="86" x2="86" y2="86"/></svg></div>
+    <div class="deco d-camera"><svg viewBox="0 0 100 100"><rect x="14" y="34" width="72" height="48" rx="6"/><path d="M34 34 l8 -10 h16 l8 10"/><circle cx="50" cy="58" r="15"/><circle cx="50" cy="58" r="7"/><circle cx="74" cy="44" r="2.5"/></svg></div>
+    <div class="deco d-mirror"><svg viewBox="0 0 100 130"><ellipse cx="50" cy="42" rx="30" ry="36"/><ellipse cx="50" cy="42" rx="20" ry="25"/><path d="M50 78 v40"/><path d="M38 122 h24"/></svg></div>
+    <div class="grid">
+        <div class="cell spine" style="grid-row:1; grid-column:4;"><span class="num">1</span></div>
+        <div class="cell" style="grid-row:1; grid-column:5;"></div>
+        <div class="cell" style="grid-row:1; grid-column:6;"></div>
+        <div class="cell" style="grid-row:1; grid-column:7;"></div>
+        <div class="cell" style="grid-row:2; grid-column:3;"><span class="num">2</span></div>
+        <div class="cell spine" style="grid-row:2; grid-column:4;"></div>
+        <div class="cell" style="grid-row:2; grid-column:5;"></div>
+        <div class="cell" style="grid-row:2; grid-column:6;"></div>
+        <div class="cell" style="grid-row:2; grid-column:7;"></div>
+        <div class="cell" style="grid-row:2; grid-column:8;"></div>
+        <div class="cell" style="grid-row:2; grid-column:9;"></div>
+        <div class="cell" style="grid-row:3; grid-column:2;"><span class="num">3</span></div>
+        <div class="cell" style="grid-row:3; grid-column:3;"></div>
+        <div class="cell spine" style="grid-row:3; grid-column:4;"></div>
+        <div class="cell" style="grid-row:3; grid-column:5;"></div>
+        <div class="cell" style="grid-row:3; grid-column:6;"></div>
+        <div class="cell" style="grid-row:3; grid-column:7;"></div>
+        <div class="cell" style="grid-row:3; grid-column:8;"></div>
+        <div class="cell" style="grid-row:3; grid-column:9;"></div>
+        <div class="cell" style="grid-row:3; grid-column:10;"></div>
+        <div class="cell" style="grid-row:4; grid-column:2;"><span class="num">4</span></div>
+        <div class="cell" style="grid-row:4; grid-column:3;"></div>
+        <div class="cell spine" style="grid-row:4; grid-column:4;"></div>
+        <div class="cell" style="grid-row:4; grid-column:5;"></div>
+        <div class="cell" style="grid-row:4; grid-column:6;"></div>
+        <div class="cell" style="grid-row:4; grid-column:7;"></div>
+        <div class="cell" style="grid-row:5; grid-column:3;"><span class="num">5</span></div>
+        <div class="cell spine" style="grid-row:5; grid-column:4;"></div>
+        <div class="cell" style="grid-row:5; grid-column:5;"></div>
+        <div class="cell" style="grid-row:5; grid-column:6;"></div>
+        <div class="cell" style="grid-row:5; grid-column:7;"></div>
+        <div class="cell" style="grid-row:5; grid-column:8;"></div>
+        <div class="cell" style="grid-row:5; grid-column:9;"></div>
+        <div class="cell" style="grid-row:5; grid-column:10;"></div>
+        <div class="cell" style="grid-row:5; grid-column:11;"></div>
+        <div class="cell" style="grid-row:6; grid-column:2;"><span class="num">6</span></div>
+        <div class="cell" style="grid-row:6; grid-column:3;"></div>
+        <div class="cell spine" style="grid-row:6; grid-column:4;"></div>
+        <div class="cell" style="grid-row:6; grid-column:5;"></div>
+        <div class="cell" style="grid-row:6; grid-column:6;"></div>
+        <div class="cell" style="grid-row:7; grid-column:2;"><span class="num">7</span></div>
+        <div class="cell" style="grid-row:7; grid-column:3;"></div>
+        <div class="cell spine" style="grid-row:7; grid-column:4;"></div>
+        <div class="cell" style="grid-row:7; grid-column:5;"></div>
+        <div class="cell" style="grid-row:7; grid-column:6;"></div>
+        <div class="cell" style="grid-row:7; grid-column:7;"></div>
+        <div class="cell spine" style="grid-row:8; grid-column:4;"><span class="num">8</span></div>
+        <div class="cell" style="grid-row:9; grid-column:3;"><span class="num">9</span></div>
+        <div class="cell spine" style="grid-row:9; grid-column:4;"></div>
+        <div class="cell" style="grid-row:9; grid-column:5;"></div>
+        <div class="cell" style="grid-row:9; grid-column:6;"></div>
+        <div class="cell" style="grid-row:9; grid-column:7;"></div>
+        <div class="cell" style="grid-row:10; grid-column:2;"><span class="num">10</span></div>
+        <div class="cell" style="grid-row:10; grid-column:3;"></div>
+        <div class="cell spine" style="grid-row:10; grid-column:4;"></div>
+        <div class="cell" style="grid-row:10; grid-column:5;"></div>
+        <div class="cell" style="grid-row:10; grid-column:6;"></div>
+        <div class="cell" style="grid-row:10; grid-column:7;"></div>
+        <div class="cell" style="grid-row:10; grid-column:8;"></div>
+    <div class="cell" style="grid-row:11; grid-column:3;"><span class="num">11</span></div>
+    <div class="cell spine" style="grid-row:11; grid-column:4;"></div>
+    <div class="cell" style="grid-row:11; grid-column:5;"></div>
+    <div class="cell" style="grid-row:12; grid-column:3;"><span class="num">12</span></div>
+    <div class="cell spine" style="grid-row:12; grid-column:4;"></div>
+    <div class="cell" style="grid-row:12; grid-column:5;"></div>
+    <div class="cell" style="grid-row:12; grid-column:6;"></div>
+    <div class="cell" style="grid-row:12; grid-column:7;"></div>
+    <div class="cell" style="grid-row:12; grid-column:8;"></div>
+    <div class="cell" style="grid-row:13; grid-column:3;"><span class="num">13</span></div>
+    <div class="cell spine" style="grid-row:13; grid-column:4;"></div>
+    <div class="cell" style="grid-row:13; grid-column:5;"></div>
+    <div class="cell" style="grid-row:13; grid-column:6;"></div>
+    <div class="cell" style="grid-row:13; grid-column:7;"></div>
+    <div class="cell" style="grid-row:14; grid-column:1;"><span class="num">14</span></div>
+    <div class="cell" style="grid-row:14; grid-column:2;"></div>
+    <div class="cell" style="grid-row:14; grid-column:3;"></div>
+    <div class="cell spine" style="grid-row:14; grid-column:4;"></div>
+    <div class="cell" style="grid-row:14; grid-column:5;"></div>
+    <div class="cell spine" style="grid-row:15; grid-column:4;"><span class="num">15</span></div>
+    <div class="cell" style="grid-row:15; grid-column:5;"></div>
+    <div class="cell" style="grid-row:15; grid-column:6;"></div>
+    <div class="cell" style="grid-row:15; grid-column:7;"></div>
+    <div class="cell" style="grid-row:15; grid-column:8;"></div>
+    <div class="cell" style="grid-row:15; grid-column:9;"></div>
+    <div class="cell" style="grid-row:15; grid-column:10;"></div>
+    <div class="cell" style="grid-row:15; grid-column:11;"></div>
+    <div class="cell" style="grid-row:15; grid-column:12;"></div>
+    </div>
+  </div>
+</body>
+</html>
